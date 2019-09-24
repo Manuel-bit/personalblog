@@ -4,7 +4,7 @@ from .forms import NewBlogForm
 from ..models import Blog
 from .. import db
 
-@main.route('/')
+@main.route('/home')
 def home():
 
   blogs= Blog.query.all()
@@ -19,3 +19,8 @@ def newblog():
     db.session.commit()
     return redirect(url_for('main.home'))
   return render_template('newblog.html',form=form)
+
+@main.route('/')
+def index():
+  
+  return render_template('index.html')

@@ -2,10 +2,16 @@
 
 {% block content %}
 {% for blog in blogs %}
-<div class="card blogs" style="width: 18rem;">
-  <div class="card-title">{{ blog.title }}</div><hr>
-  <div class="card-body">{{blog.blog}}</div>
-  <footer class="blockquote-footer">Author : {{ blog.author}}</footer>
+<div class="container-fluid">
+  <div class="row">
+    <div class="column blog">
+      <div class="card blogs" style="width: 18rem;">
+        <div class="card-title">{{ blog.title }}</div><hr>
+        <div class="card-body">{{blog.blog}}</div>
+        <footer class="blockquote-footer">Author : {{ blog.author}}</footer>
+      </div>
+    </div>
+  </div>
 </div>
 {% endfor %}
 {% endblock %}
