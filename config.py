@@ -10,13 +10,14 @@ class ProdConfig(Config):
   class that defines configuarations in production
   '''
   SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-  
+  DEBUG=False
 
 class DevConfig(Config):
   '''
   class that defines configuarations in development
   '''
   DEBUG=True
+  SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://emmanuel:123456@localhost/blogs'
 
 config_options = {
   'development' :DevConfig,
