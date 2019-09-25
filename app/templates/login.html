@@ -3,6 +3,7 @@
 
 {% block content %}
   <div class="card login" style="width:40rem;">
-      {{wtf.quick_form(form)}}
+      {{wtf.quick_form(logform)}}
   </div>
+  <p>Don't have an account ? <a href="{{url_for('auth.signup')}}">SignUp</a></p>
 {% endblock %}

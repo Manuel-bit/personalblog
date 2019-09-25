@@ -1,1 +1,9 @@
 {% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid intro">
+  <h1 class="text">Welcome The Wheels Blog</h1>
+  <p>If one day the speed kills me. Do not cry, because I was smiling.</p>
+  <button type="button" class="btn btn-primary"><a href="{{url_for('auth.login')}}">Log In</a></button>
+  <button class="btn btn-primary"><a href="{{url_for('auth.signup')}}">Sign Up</a></button>
+</div>
+{% endblock %}
