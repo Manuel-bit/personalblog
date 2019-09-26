@@ -8,14 +8,57 @@
 }
 
 .intro{
-  
+  background-image: url("../images.jpg");
   background-size: cover;
   height: 100vh;
   text-align: center;
   color: orangered;
-  padding-top: 20%;
+  padding-top: 10%;
+  font-family: 'Mansalva', cursive;
   
 }
 a{
   color: aliceblue;
+}
+.login{
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  color: orangered;
+  background-color: #262846;
+}
+.log{
+  background-image: url("../images.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+
+.newblog{
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  color: orangered;
+  background-color: #262846;
+
+}
+.signup{
+  background-image: url("../images.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+.new{
+  background-image: url("../image2.jpg");
+  background-size: cover;
+  height: 100vh;
+}
+/* .home{
+  background-image: url("../image2.jpg");
+  background-size: cover;
+  height: 100vh;
+} */
+
+#quote{
+  background-color: #262846;
+  color: orangered;
+  font-family: 'Mansalva', cursive;
 }

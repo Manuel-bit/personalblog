@@ -34,24 +34,18 @@ def signup():
     return redirect(url_for('auth.login'))
   return render_template('signup.html',form=form)
 
-@auth.route('/login', methods= ['GET', 'POST'])
+@auth.route('/login', methods=['GET', 'POST'])
 def login():
-  logform=LogInForm()
-  if logform.validate_on_submit():
-    if logform.email.data == None or logform.password.data == None:
-      flash("all fields habe to be filled")
-    user = Writter.query.filter_by(email = Writter.email).first()
-    if user != None:
-      if user.check_password(logform.password.data) != False:
-        login_user(user)
-        return redirect(url_for('main.home'))
-      else:
-        flash("invalid username or password")
-        return render_template("login.html",logform=logform)
-    else:
-      flash("invalid user")
-      return redirect(url_for('auth.login'))
-  return render_template('login.html',logform=logform)
+
+  login_form = LogInForm()
+  if login_form.validate_on_submit():
+    user = Writter.query.filter_by(email=login_form.email.data).first()
+    if user is not None and user.check_password(login_form.password.data):
+      login_user(user, login_form.remember.data)
+      return redirect(request.args.get('next') or url_for('main.home'))
+    flash('Invalid username or Password')
+  title = "Blogs login"
+  return render_template('login.html', login_form=login_form, title=title)
 
 @auth.route('/logout')
 @login_required

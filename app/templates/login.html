@@ -2,8 +2,11 @@
 {% import 'bootstrap/wtf.html' as wtf%}
 
 {% block content %}
+<div class="container-fluid log">
   <div class="card login" style="width:40rem;">
-      {{wtf.quick_form(logform)}}
+      {{wtf.quick_form(login_form)}}
+      <p>Don't have an account ? <a href="{{url_for('auth.signup')}}">SignUp</a></p>
   </div>
-  <p>Don't have an account ? <a href="{{url_for('auth.signup')}}">SignUp</a></p>
+</div>
+  
 {% endblock %}

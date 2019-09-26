@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content%}
-<div class="card newblog" style="width:40rem;">
+<div class="container-fluid signup">
+  <div class="card newblog bg-transparent" style="width:40rem;">
   <form method='post' action="/signup">
     {{form.csrf_token}}
     <fieldset>
@@ -28,5 +29,6 @@
     </fieldset>
   </form>
   <p class="tag">Already have an account ? <a href="{{url_for('auth.login')}}">Login</a></p>
+</div>
 </div>
 {% endblock %}

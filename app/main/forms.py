@@ -13,3 +13,7 @@ class NewBlogForm(FlaskForm):
   def validate_title(self,data_field):
     if Blog.query.filter_by(title = data_field.data).first():
       raise ValidationError('Blog with that title exists')
+
+class AddComment(FlaskForm):
+    comment = StringField('Comment', validators=[DataRequired()])
+    submit = SubmitField('Add Comment')

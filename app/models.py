@@ -26,6 +26,7 @@ class Writter(UserMixin,db.Model):
   password=db.Column(db.String(255))
   email=db.Column(db.String(255),unique=True)
   blogs=db.relationship('Blog',backref = 'writter',lazy='dynamic')
+  Comments=db.relationship('Comment',backref='user',lazy='dynamic')
 
   def save(self):
     db.session.add(self)
@@ -47,8 +48,21 @@ class Comment(db.Model):
   id=db.Column(db.Integer, primary_key=True)
   comment=db.Column(db.String(255))
   blog_id=db.Column(db.Integer, db.ForeignKey('blogs.id'))
+  writter_id = db.Column(db.Integer, db.ForeignKey('writters.id'))
+
+  def save_comment(self):
+    db.session.add(self)
+    db.session.commit()
+
+  @classmethod
+  def get_comments(cls):
+    comments = Comment.query.all()
+    return comments
 
 
 
-
+class Quotes:
+  def __init__(self,author,randomquote):
+    self.author = author
+    self.quote = randomquote
   
